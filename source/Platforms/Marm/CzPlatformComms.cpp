@@ -267,11 +267,13 @@ CzString CzPlatformComms::HttpDetermineUserAgent()
 
 		switch (os)
 		{
+		/*		
 		case S3E_OS_ID_SYMBIAN:
 			UserAgent = "Mozilla/5.0 (SymbianOS/9.1; U; ";
 			UserAgent += locale;
 			UserAgent += ") AppleWebKit/413 (KHTML, like Gecko) Safari/413";
 			break;
+		*/
 		case S3E_OS_ID_WINMOBILE:
 			UserAgent = device_id;
 			UserAgent += " Opera/9.50 (Windows NT 5.1; U; ";

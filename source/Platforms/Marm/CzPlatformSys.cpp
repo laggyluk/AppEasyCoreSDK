@@ -193,8 +193,9 @@ eCzDeviceType CzPlatformSys::getDeviceType()
 	// Calculate portal type from OS
 	switch (os)
 	{
-	case S3E_OS_ID_SYMBIAN:
+/*	case S3E_OS_ID_SYMBIAN:
 		return CzDeviceType_Symbian;
+		*/
 	case S3E_OS_ID_WINMOBILE:
 	case S3E_OS_ID_WINCE:
 		return CzDeviceType_WinMobile;

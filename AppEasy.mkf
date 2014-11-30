@@ -40,7 +40,7 @@ subprojects
 	UserAgent
 	
 	# extra modules
-	s3eFlurryAppSpot
+#	s3eFlurryAppSpot
 #	s3eChartBoost
 #	revmob\RevMobEDK
 }

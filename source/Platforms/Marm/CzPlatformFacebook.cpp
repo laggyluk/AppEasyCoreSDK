@@ -60,7 +60,7 @@ int CzPlatformFacebook::Init()
 	SessionStatus = FB_UNINITIALISED;
 	CurrentSession = 0;
 
-	if (s3eExtFacebookAvailable())
+	if (s3eFacebookAvailable())
 		Available = true;
 	else
 		return 0;
