@@ -66,8 +66,23 @@ int CzSettings::Init()
 				{
 					CzDecrypt::Enabled = attrib->getValueAsBool();
 					CzDebug::Log(CZ_DEBUG_CHANNEL_INFO, "Decrypt source set to ", CzString(CzDecrypt::Enabled).c_str());
+				}				
+
+			}
+
+			// Get texture filtering
+			node = root->getFirstNamedNode(CZ_HASH("filtering"));
+			if (node != NULL)
+			{
+				CzXmlAttribute* attrib = node->getAttribute(CZ_HASH("enable"));
+				if (attrib != NULL)
+				{
+					UseTextureFiltering = attrib->getValueAsBool();
+					CzDebug::Log(CZ_DEBUG_CHANNEL_INFO, "Texture filtering set to ", CzString(UseTextureFiltering).c_str());
 				}
 			}
+			//'hotfix'
+			UseTextureFiltering = false;
 		}
 	}
 
