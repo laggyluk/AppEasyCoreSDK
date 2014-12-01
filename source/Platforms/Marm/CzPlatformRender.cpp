@@ -15,6 +15,7 @@
 #include "IwGL.h"
 #include "Iw2D.h"
 #include "IwGxFont.h"
+#include "CzSettings.h"
 
 // TODO:
 // - Move vertex list building into AddPrimitives from DrawPrimitives
@@ -121,7 +122,8 @@ void CzPlatformRender::DrawPrimitives(CzRenderPrim* prims, CzRenderMaterial* mat
 			filter = mt->GetFiltering();
 		else
 			filter = materials->Filter;
-
+		//override filtering 
+		filter = filter && CZ_SETTINGS->getTextureFiltering();
 		// Only create new render material if something important has changed
 		if (texture != CurrentTexture || CurrentAlphaMode != materials->AlphaMode || CurrentFilter != filter || CurrentTexture == NULL || CurrentTiled != materials->Tiled)
 		{
@@ -180,7 +182,7 @@ void CzPlatformRender::DrawPrimitives(CzRenderPrim3* prims, CzRenderMaterial* ma
 			filter = mt->GetFiltering();
 		else
 			filter = materials->Filter;
-
+		filter = filter && CZ_SETTINGS->getTextureFiltering();
 		// Only create new render material if something important has changed
 		if (texture != CurrentTexture || CurrentAlphaMode != materials->AlphaMode || CurrentFilter != filter || CurrentTexture == NULL || CurrentTiled != materials->Tiled)
 		{
@@ -431,7 +433,7 @@ void CzPlatformRender::BatchDrawPrims(bool filter)
 		MaterialIndices[mat_id] += 4;
 		prims++;
 	}
-
+	filter = filter && CZ_SETTINGS->getTextureFiltering();
 	// Render batched streams
 	CzRenderMaterial** mats = Materials;
 	for (int t = 0; t < NextMaterial; t++)
